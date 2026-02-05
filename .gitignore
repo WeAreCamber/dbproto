@@ -1,0 +1,13 @@
+# Dependency folders (very heavy, don't upload!)
+node_modules/
+
+# Local environment variables (private keys/passwords)
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build folders
+dist/
+build/

@@ -1,0 +1,548 @@
+:root {
+    /* Brand Palette */
+    --color-seafoam: #96DED1; /* Primary for soft accents, highlights */
+    --color-terracotta: #C7826B; /* Secondary for actions, CTAs */
+    --color-charcoal: #2F3E46; /* Main text, strong elements */
+    --color-sand: #F5F2ED; /* Background, soft sections */
+    --color-sage: #CBD5C0; /* Borders, dividers, subtle accents */
+    --color-white: #ffffff;
+
+    /* Semantic Colors (remapping for clarity, inspired by Spirit Daughter's softness) */
+    --color-background: var(--color-sand); /* Base canvas, soft cream */
+    --color-text: var(--color-charcoal); /* For readability */
+    --color-heading: var(--color-charcoal);
+    --color-link: var(--color-terracotta); /* Subtle warmth for links */
+    --color-button-bg: var(--color-terracotta);
+    --color-button-text: var(--color-white);
+    --color-card-bg: var(--color-white);
+    --color-card-border: var(--color-sage);
+
+    /* Spacing System - Generous and intentional */
+    --spacing-xxs: 0.25rem; /* 4px */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2.5rem;   /* 40px */
+    --spacing-xl: 4rem;     /* 64px */
+    --spacing-xxl: 6rem;    /* 96px */
+    --spacing-xxxl: 8rem;   /* 128px */
+
+    /* Typography */
+    --font-family-base: 'Inter', sans-serif;
+    --font-family-heading: 'Lora', serif; /* Elegant serif for headings */
+
+    --font-size-base: 1.05rem; /* Slightly larger base for readability */
+    --font-size-h1: 4rem; /* Grand for hero */
+    --font-size-h2: 2.8rem;
+    --font-size-h3: 1.8rem;
+    --font-size-h4: 1.3rem;
+
+    --line-height-base: 1.7;
+    --line-height-heading: 1.15;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: var(--color-heading);
+    font-weight: 400; /* Lora's elegance comes from lighter weights */
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+
+/* Links */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-charcoal);
+    transform: translateY(-1px);
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xxl) 0;
+}
+
+/* Header */
+header {
+    background-color: var(--color-background);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-sage);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-family: var(--font-family-heading); /* Brand name gets elegant serif */
+    font-size: var(--font-size-h4);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-family: var(--font-family-base);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em; /* More space for elegance */
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.nav-links a:hover {
+    color: var(--color-link);
+}
+
+/* Hero Block - Expansive and inviting */
+.block-hero {
+    background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-white) 100%);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-sage);
+}
+
+.block-hero h1 {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--spacing-md);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.1;
+    color: var(--color-terracotta); /* Hero heading using accent */
+}
+
+.block-hero p {
+    font-size: var(--font-size-h1);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-text);
+    opacity: 0.85;
+    font-weight: 300;
+}
+
+.hero-quote {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    color: var(--color-terracotta);
+    margin-top: var(--spacing-xl);
+    line-height: 1;
+}
+
+/* Buttons - Soft yet clear */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(var(--color-terracotta), 0.2);
+}
+
+.btn:hover {
+    background-color: var(--color-charcoal);
+    box-shadow: 0 8px 20px rgba(var(--color-charcoal), 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-text-link {
+    font-weight: 600;
+    color: var(--color-link);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+}
+
+.btn-text-link:hover {
+    color: var(--color-charcoal);
+}
+
+
+/* Service Blocks Grid - Elegant Cards (Homepage) */
+.block-services {
+    background-color: var(--color-white); /* Contrasting background for services */
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid var(--color-sage);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl); /* More space between cards */
+}
+
+.service-card {
+    background: var(--color-card-bg);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    border: 1px solid var(--color-card-border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-card:hover {
+    border-color: var(--color-terracotta); /* Accentuates on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.service-icon {
+    font-size: 3.5rem; /* Larger icon for impact */
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-seafoam); /* Seafoam for iconic elements */
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-h3);
+    font-weight: 500; /* Lora heading with medium weight */
+}
+
+.service-card p {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+/* Image Text Feature Block */
+.block-image-text-feature {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-sand); /* Alternating background */
+    border-bottom: 1px solid var(--color-sage);
+}
+
+.block-image-text-feature .feature-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.block-image-text-feature.reverse-layout .feature-content {
+    grid-template-areas: "image text";
+}
+
+.block-image-text-feature.reverse-layout .feature-text {
+    grid-area: text;
+}
+
+.block-image-text-feature.reverse-layout .feature-image {
+    grid-area: image;
+}
+
+.feature-image {
+    position: relative;
+    padding-bottom: 65%; /* Aspect ratio for image container */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-text {
+    padding: var(--spacing-lg) 0;
+}
+
+.feature-subtitle {
+    font-family: var(--font-family-base);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-seafoam);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.feature-text h2 {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-text p {
+    font-size: 1.15rem;
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    opacity: 0.9;
+}
+
+/* Service Detail Block (for /services page) */
+.block-service-detail {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-white); /* Alternating background */
+    border-bottom: 1px solid var(--color-sage);
+}
+
+.block-service-detail:nth-child(even) { /* Alternate background for better visual separation */
+    background-color: var(--color-sand);
+}
+
+.service-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.block-service-detail.reverse-layout .service-detail-content {
+    grid-template-areas: "image text";
+}
+
+.block-service-detail.reverse-layout .service-detail-text {
+    grid-area: text;
+}
+
+.block-service-detail.reverse-layout .service-detail-image {
+    grid-area: image;
+}
+
+.service-detail-image {
+    position: relative;
+    padding-bottom: 65%; /* Aspect ratio for image container */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.service-detail-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.service-detail-text {
+    padding: var(--spacing-lg) 0;
+}
+
+.service-detail-subtitle {
+    font-family: var(--font-family-base);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-seafoam);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    display: block;
+}
+
+.service-detail-text h2 {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-md);
+}
+
+.service-detail-text p {
+    font-size: 1.15rem;
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    opacity: 0.9;
+}
+
+/* Call to Action Block */
+.block-cta {
+    background-color: var(--color-seafoam); /* Distinctive CTA color */
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    color: var(--color-white); /* Text on seafoam background */
+}
+
+.block-cta h2 {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-white); /* Heading on seafoam background */
+}
+
+.block-cta p {
+    font-size: var(--font-size-h4);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--color-white);
+    opacity: 0.9;
+}
+
+.block-cta .btn {
+    background-color: var(--color-white); /* White button for contrast */
+    color: var(--color-terracotta);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+}
+
+.block-cta .btn:hover {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+
+/* General Content Styling (for content outside of specific blocks) */
+.content {
+    padding: var(--spacing-xxl) 0;
+    text-align: left; /* Default alignment for general content */
+}
+
+.content h2 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    font-size: var(--font-size-h2);
+}
+
+.content p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.15rem;
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content ul {
+    margin: var(--spacing-md) auto;
+    padding-left: var(--spacing-md);
+    list-style: none;
+    max-width: 800px;
+}
+
+.content li {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.15rem;
+    color: var(--color-text);
+}
+
+.content li strong {
+    color: var(--color-terracotta);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--color-charcoal);
+    color: var(--color-sand);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.875rem;
+    color: var(--color-sage);
+    margin: var(--spacing-xs) 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    :root {
+        --font-size-h1: 3rem;
+        --font-size-h2: 2rem;
+        --font-size-h3: 1.5rem;
+        --font-size-h4: 1.1rem;
+        --font-size-base: 1rem;
+
+        --spacing-md: 1rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+        --spacing-xxl: 4rem;
+        --spacing-xxxl: 5rem;
+    }
+
+    .block-image-text-feature .feature-content,
+    .block-service-detail .service-detail-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .block-image-text-feature.reverse-layout .feature-content,
+    .block-service-detail.reverse-layout .service-detail-content {
+        grid-template-areas: none; /* Reset grid-template-areas for mobile */
+    }
+
+    .block-image-text-feature .feature-image,
+    .block-service-detail .service-detail-image {
+        order: -1; /* Image always on top for mobile unless reversed */
+    }
+
+    .nav-links {
+        gap: var(--spacing-sm);
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    .block-cta h2 {
+        font-size: 2rem;
+    }
+}
